@@ -1,0 +1,12 @@
+services:
+  pii-frontend:
+    # image: cmcdtqg.fe
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        VITE_API_URL: "https://piiapi.zamiga.vn/api"  # Biến môi trường build-time cho VITE
+        VITE_DES_ENCRYPT_KEY: "ghkd324i0230"
+    ports:
+      - '3000:80'
+    restart: unless-stopped
